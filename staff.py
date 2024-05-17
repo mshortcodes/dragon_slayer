@@ -1,23 +1,17 @@
-class Base:
-    def __init__(self, name):
-        self.name = name
-        self.level = 1
-        self.health = 100
-        self.mana = 100
-        self.potions = 0
+from base import Base
 
-    def attack(self, target):
-        target.health -= 5
-
-class Mage(Base):
+class Staff(Base):
     def __init__(self, name):
         super().__init__(name)
+        self._weapon = "Staff"
 
     def fireball(self, target):
+        dmg = 10
         if self.mana < 10:
             return "Not enough mana."
         self.mana -= 10
         target.health -= 10
+        print(f"{target.name} takes {dmg} damage.")
 
     def freeze(self, target):
         if self.mana < 15:

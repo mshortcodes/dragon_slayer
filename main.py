@@ -4,5 +4,6 @@ from training import training
 def main():
     player = intro()
     training(player)
+    
 
 main()
