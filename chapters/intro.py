@@ -1,4 +1,4 @@
-from staff import Staff
+from weapons.staff import Staff
 
 def intro():
     print_intro_message()
@@ -25,16 +25,22 @@ def choose_weapon(player_name):
     # get input as integer
     has_chosen = False
     while not has_chosen:
-        chosen_weapon = int(input("Enter the number. "))
-        if chosen_weapon > 0 and chosen_weapon <= 4:
-            has_chosen = True
+        try:
+            choice_num = int(input("Enter the number. "))
+            if choice_num < 1 or choice_num > 4:
+               print("The number must be between 1 and 4.")
+               continue
+        except ValueError:
+            print("The input must be a number.")
+            continue
+        has_chosen = True
 
     # get weapon str from list
-    chosen_weapon = weapons[chosen_weapon - 1]
+    choice_str = weapons[choice_num - 1]
 
-    if chosen_weapon == "Staff":
+    if choice_str == "Staff":
         player = Staff(player_name)
 
-    print(f"You have chosen the {chosen_weapon}.")
+    print(f"You have chosen the {choice_str}.")
 
     return player

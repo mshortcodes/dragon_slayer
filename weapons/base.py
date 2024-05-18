@@ -8,4 +8,6 @@ class Base:
         self._xp = 0
 
     def attack(self, target):
+        dmg = 5
         target.health -= 5
+        print(f"The {target.name} takes {dmg} damage has {target.health} health remaining.")
