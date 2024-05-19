@@ -3,8 +3,10 @@ from weapons.staff import Staff
 def intro():
     print_intro_message()
     player_name = get_player_name()
-    print(f"\nGreetings, {player_name}!")
-    player = choose_weapon(player_name)
+    print_instructions(player_name)
+    weapons = print_weapon_choices()
+    weapon_choice = get_weapon_choice(weapons)
+    player = create_player(player_name, weapon_choice)
     return player
   
 def print_intro_message():
@@ -15,32 +17,30 @@ def get_player_name():
     print("All heroes need a name.")
     return input("What is your name? ")
 
-def choose_weapon(player_name):
+def print_instructions(player_name):
+    print(f"\nGreetings, {player_name}!")
     print("You must choose a weapon, train, and defeat the dragon.\n")
 
+def print_weapon_choices():
     weapons = ["Bow", "Shield", "Staff", "Spear"]
     for i, j in enumerate(weapons):
         print(f"{i + 1}: {j}")
+    return weapons
 
-    # get input as integer
-    has_chosen = False
-    while not has_chosen:
+def get_weapon_choice(weapons):
+    while True:
         try:
             choice_num = int(input("Enter the number. "))
             if choice_num < 1 or choice_num > 4:
                print("The number must be between 1 and 4.")
                continue
+            weapon_choice = weapons[choice_num - 1]
+            print(f"You have chosen the {weapon_choice}.")
+            return weapon_choice
         except ValueError:
             print("The input must be a number.")
-            continue
-        has_chosen = True
 
-    # get weapon str from list
-    choice_str = weapons[choice_num - 1]
-
-    if choice_str == "Staff":
+def create_player(player_name, weapon_choice):
+    if weapon_choice == "Staff":
         player = Staff(player_name)
-
-    print(f"You have chosen the {choice_str}.")
-
     return player

@@ -1,9 +1,8 @@
-from chapters.intro import intro
-from chapters.training import training
+from story.intro import intro
+from story.training import training
 
 def main():
     player = intro()
     training(player)
     
-
 main()
