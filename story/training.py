@@ -3,7 +3,11 @@ import time
 
 def training(player):
     view_stats(player)
-    fight_dummy(player)
+    training_dummy = create_dummy()
+    print_abilities(player)
+    ability_choice = get_ability_choice(player)
+    fight_dummy(player, training_dummy, ability_choice)
+    get_training_choice(player, training_dummy, ability_choice)
 
 def view_stats(player):
     time.sleep(1)
@@ -16,44 +20,46 @@ Mana: {player.mana}
 Potions: {player.potions}
 """)
     
-def fight_dummy(player):
+def create_dummy():
     training_dummy = Training_Dummy("training dummy")
-    print("Test your abilities on the training dummy.")
-    print("All classes have a basic attack and 4 unique abilities.")
+    print(f"Test your abilities on the {training_dummy.name}.")
+    return training_dummy
 
-    # list ability choices
+def print_abilities(player):
+    print("All classes have a basic attack and 4 unique abilities.")
     for i in range(5):
         print(f"{i + 1}: {player._abilities[i]}")
 
-    # prompt user to choose ability
-    training = True
-    while training:
+def get_ability_choice(player):
+    while True:
         try:
             choice_num = int(input("\nEnter the number. "))
             if choice_num < 1 or choice_num > 5:
                 print("The number must be between 1 and 5.")
                 continue
+            ability_choice = player._abilities[choice_num - 1]
+            return ability_choice
         except ValueError:
             print("Input must be a number.")
             continue
         
-        choice_str = player._abilities[choice_num - 1]
-
-        # combat
-        print(f"\nYou use {choice_str} on the {training_dummy.name}.")
-        time.sleep(1)
-        player.__getattribute__(choice_str)(training_dummy)
-        time.sleep(1)
-        training_dummy.invincible()
-        time.sleep(1)
+def fight_dummy(player, training_dummy, ability_choice):
+    print(f"\nYou use {ability_choice} on the {training_dummy.name}.")
+    time.sleep(1)
+    player.__getattribute__(ability_choice)(training_dummy)
+    time.sleep(1)
+    training_dummy.invincible()
+    time.sleep(1)
         
-        # prompt user to continue training
-        while True:
-            continue_training = input("\nContinue training? [y/n] ")
-            if continue_training == "n":
-                training = False
-                break
-            elif continue_training == "y":
-                break
-            else:
-                continue
+def get_training_choice(player, training_dummy, ability_choice):
+    while True:
+        continue_training = input("\nContinue training? [y/n] ")
+        if continue_training == "n":
+            break
+        elif continue_training == "y":
+            print_abilities(player)
+            ability_choice = get_ability_choice(player)
+            fight_dummy(player, training_dummy, ability_choice)
+        else:
+            print("Enter y or n.")
+            continue
