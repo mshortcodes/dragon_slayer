@@ -4,6 +4,7 @@ class Training_Dummy(Enemy):
     def __init__(self, name):
         super().__init__(name)
         self.health = 9999
+        self.element = "fire"
     
     def invincible(self):
         self.health = 9999

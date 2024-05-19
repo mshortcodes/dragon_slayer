@@ -4,6 +4,7 @@ import time
 def training(player):
     view_stats(player)
     training_dummy = create_dummy()
+    print_abilities_info()
     print_abilities(player)
     ability_choice = get_ability_choice(player)
     fight_dummy(player, ability_choice, training_dummy)
@@ -25,28 +26,28 @@ def create_dummy():
     print(f"Test your abilities on the {training_dummy.name}.")
     return training_dummy
 
-def print_abilities(player):
+def print_abilities_info():
     print("All classes have a basic attack and 4 unique abilities.")
-    for i in range(5):
-        print(f"{i + 1}: {player._abilities[i]}")
+
+def print_abilities(player):
+    for i, ability in enumerate(player.abilities):
+        print(f"{i + 1}: {ability}")
 
 def get_ability_choice(player):
     while True:
         try:
             choice_num = int(input("\nEnter the number. "))
-            if choice_num < 1 or choice_num > 5:
+            if choice_num < 1 or choice_num > len(player.abilities):
                 print("The number must be between 1 and 5.")
                 continue
-            ability_choice = player._abilities[choice_num - 1]
+            ability_choice = list(player.abilities.keys())[choice_num - 1]
             return ability_choice
         except ValueError:
             print("Input must be a number.")
             continue
         
 def fight_dummy(player, ability_choice, training_dummy):
-    print(f"\nYou use {ability_choice} on the {training_dummy.name}.")
-    time.sleep(1)
-    player.__getattribute__(ability_choice)(training_dummy)
+    player._use_ability(ability_choice, training_dummy)
     time.sleep(1)
     training_dummy.invincible()
     time.sleep(1)

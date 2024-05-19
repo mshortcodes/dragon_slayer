@@ -1,5 +1,5 @@
 from weapons.staff import Staff
-import time
+from weapons.bow import Bow
 
 def intro():
     print_intro_message()
@@ -24,8 +24,8 @@ def print_instructions(player_name):
 
 def print_weapon_choices():
     weapons = ["Bow", "Shield", "Staff", "Spear"]
-    for i, j in enumerate(weapons):
-        print(f"{i + 1}: {j}")
+    for i, weapon in enumerate(weapons):
+        print(f"{i + 1}: {weapon}")
     return weapons
 
 def get_weapon_choice(weapons):
@@ -44,4 +44,6 @@ def get_weapon_choice(weapons):
 def create_player(player_name, weapon_choice):
     if weapon_choice == "Staff":
         player = Staff(player_name)
+    elif weapon_choice == "Bow":
+        player = Bow(player_name)
     return player

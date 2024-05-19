@@ -1,6 +1,6 @@
 from weapons.base import Base
 
-class Staff(Base):
+class Bow(Base):
     def __init__(self, name):
         super().__init__(name)
         self.abilities = {
@@ -9,38 +9,38 @@ class Staff(Base):
                 "damage multiplier": 0.5,
                 "element": None
             },
-            "fireball": {
+            "power shot": {
                 "mana cost": 10,
                 "damage multiplier": 1.0,
-                "element": "fire"
+                "element": None
             },
-            "freeze": {
+            "ice arrow": {
                 "mana cost": 15,
                 "damage multiplier": 1.5,
                 "element": "ice"
             },
-            "tornado": {
+            "fire arrow": {
                 "mana cost": 15,
                 "damage multiplier": 1.5,
-                "element": None
+                "element": "fire"
             },
-            "flood": {
+            "snipe": {
                 "mana cost": 15,
                 "damage multiplier": 1.5,
                 "element": None
             }
         }
 
-    def fireball(self, target):
-        self._use_ability("fireball", target)
+    def power_shot(self, target):
+        self._use_ability("power shot", target)
 
-    def freeze(self, target):
-        self._use_ability("freeze", target)
+    def ice_arrow(self, target):
+        self._use_ability("ice arrow", target)
     
-    def tornado(self, target):
-        self._use_ability("tornado", target)
+    def fire_arrow(self, target):
+        self._use_ability("fire arrow", target)
 
-    def flood(self, target):
-        self._use_ability("flood", target)
+    def snipe(self, target):
+        self._use_ability("snipe", target)
 
 
