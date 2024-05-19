@@ -1,4 +1,5 @@
 from weapons.staff import Staff
+import time
 
 def intro():
     print_intro_message()
@@ -10,7 +11,7 @@ def intro():
     return player
   
 def print_intro_message():
-    print("Welcome to Dragon Slayer!")
+    print("--- Welcome to Dragon Slayer! ---")
     print("\nThe kingdom of Dragonia, your home, and dragons were once at peace until the Great War. \nYou escaped to a neighboring kingdom to find refuge from the last surviving dragon, Oolong. \nMany have tried to defeat him, but all have failed. \nIt is up to you to train and become the hero of this world, the Dragon Slayer!\n")
 
 def get_player_name():

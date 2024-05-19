@@ -6,8 +6,8 @@ def training(player):
     training_dummy = create_dummy()
     print_abilities(player)
     ability_choice = get_ability_choice(player)
-    fight_dummy(player, training_dummy, ability_choice)
-    get_training_choice(player, training_dummy, ability_choice)
+    fight_dummy(player, ability_choice, training_dummy)
+    get_training_choice(player, ability_choice, training_dummy)
 
 def view_stats(player):
     time.sleep(1)
@@ -43,7 +43,7 @@ def get_ability_choice(player):
             print("Input must be a number.")
             continue
         
-def fight_dummy(player, training_dummy, ability_choice):
+def fight_dummy(player, ability_choice, training_dummy):
     print(f"\nYou use {ability_choice} on the {training_dummy.name}.")
     time.sleep(1)
     player.__getattribute__(ability_choice)(training_dummy)
@@ -51,7 +51,7 @@ def fight_dummy(player, training_dummy, ability_choice):
     training_dummy.invincible()
     time.sleep(1)
         
-def get_training_choice(player, training_dummy, ability_choice):
+def get_training_choice(player, ability_choice, training_dummy):
     while True:
         continue_training = input("\nContinue training? [y/n] ")
         if continue_training == "n":
@@ -59,7 +59,7 @@ def get_training_choice(player, training_dummy, ability_choice):
         elif continue_training == "y":
             print_abilities(player)
             ability_choice = get_ability_choice(player)
-            fight_dummy(player, training_dummy, ability_choice)
+            fight_dummy(player, ability_choice, training_dummy)
         else:
             print("Enter y or n.")
             continue
