@@ -1,5 +1,7 @@
 from weapons.staff import Staff
 from weapons.bow import Bow
+from weapons.shield import Shield
+from weapons.spear import Spear
 
 def intro():
     print_intro_message()
@@ -46,4 +48,8 @@ def create_player(player_name, weapon_choice):
         player = Staff(player_name)
     elif weapon_choice == "Bow":
         player = Bow(player_name)
+    elif weapon_choice == "Shield":
+        player = Shield(player_name)
+    elif weapon_choice == "Spear":
+        player = Spear(player_name)
     return player
