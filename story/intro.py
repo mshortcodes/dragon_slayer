@@ -14,7 +14,7 @@ def intro():
   
 def print_intro_message():
     print("--- Welcome to Dragon Slayer! ---")
-    print("\nThe kingdom of Dragonia, your home, and dragons were once at peace until the Great War. \nYou escaped to a neighboring kingdom to find refuge from the last surviving dragon, Oolong. \nMany have tried to defeat him, but all have failed. \nIt is up to you to train and become the hero of this world, the Dragon Slayer!\n")
+    print("\nThe kingdom of Dragonia, your home, and dragons were once at peace until the Great War. \nYou escaped to a neighboring kingdom to find refuge from the last surviving dragon, Oolong. \nMany have tried to defeat him, but all have failed. \nIt is up to you become the hero of this world, the Dragon Slayer!\n")
 
 def get_player_name():
     print("All heroes need a name.")
@@ -22,7 +22,7 @@ def get_player_name():
 
 def print_instructions(player_name):
     print(f"\nGreetings, {player_name}!")
-    print("You must choose a weapon, train, and defeat the dragon.\n")
+    print("You must choose a weapon, train, find the Dragon Ring, and defeat the dragon.\n")
 
 def print_weapon_choices():
     weapons = ["Bow", "Shield", "Staff", "Spear"]
