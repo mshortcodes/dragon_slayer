@@ -27,11 +27,11 @@ def create_dummy():
     return training_dummy
 
 def print_abilities_info():
-    print("All classes have a basic attack and 4 unique abilities.")
+    print("All classes have a basic attack and 4 unique abilities.\n")
 
 def print_abilities(player):
     for i, ability in enumerate(player.abilities):
-        print(f"{i + 1}: {ability}")
+        print(f"{i + 1}. {ability}")
 
 def get_ability_choice(player):
     while True:

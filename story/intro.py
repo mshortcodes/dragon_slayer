@@ -27,13 +27,13 @@ def print_instructions(player_name):
 def print_weapon_choices():
     weapons = ["Bow", "Shield", "Staff", "Spear"]
     for i, weapon in enumerate(weapons):
-        print(f"{i + 1}: {weapon}")
+        print(f"{i + 1}. {weapon}")
     return weapons
 
 def get_weapon_choice(weapons):
     while True:
         try:
-            choice_num = int(input("Enter the number. "))
+            choice_num = int(input("\nEnter the number. "))
             if choice_num < 1 or choice_num > 4:
                print("The number must be between 1 and 4.")
                continue

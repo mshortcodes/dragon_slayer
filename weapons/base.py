@@ -1,3 +1,5 @@
+import time
+
 class Base:
     def __init__(self, name):
         self.name = name
@@ -9,6 +11,15 @@ class Base:
 
     def attack(self, target):
         self._use_ability("attack", target)
+    
+    def sleep(self):
+        print("\nSleeping...")
+        time.sleep(2)
+        self.health = 100
+        self.mana = 100
+        print("You have recovered full health and mana.")
+        print(f"Health: {self.health}/100")
+        print(f"Mana: {self.mana}/100")
     
     def _calc_damage(self, ability, target):
         damage = int(10 * self.abilities[ability]["damage multiplier"])
