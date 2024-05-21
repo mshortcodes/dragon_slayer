@@ -3,11 +3,10 @@ import time
 class Base:
     def __init__(self, name):
         self.name = name
-        self.level = 1
-        self.xp = 0
         self.health = 100
         self.mana = 100
         self.potions = 0
+        self.has_dragon_ring = False
 
     def attack(self, target):
         self._use_ability("attack", target)

@@ -12,10 +12,8 @@ def training(player):
 
 def view_stats(player):
     time.sleep(1)
-
     print(f"""
 Your current stats are: 
-Level: {player.level}
 Health: {player.health}
 Mana: {player.mana}
 Potions: {player.potions}
