@@ -7,10 +7,8 @@ class Base:
         self.mana = 100
         self.potions = 0
         self.has_dragon_ring = False
+        self.is_alive = True
 
-    def attack(self, target):
-        self._use_ability("attack", target)
-    
     def _calc_damage(self, ability, target):
         damage = int(10 * self.abilities[ability]["damage multiplier"])
         if self._is_weak_to(ability, target):

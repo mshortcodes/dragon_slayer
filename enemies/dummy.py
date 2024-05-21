@@ -8,4 +8,4 @@ class Training_Dummy(Enemy):
     
     def invincible(self):
         self.health = 9999
-        print(f"The {self.name} uses {self.invincible.__name__} and heals to {self.health} health.")
+        print(f"The {self.name} uses {self.invincible.__name__.capitalize()} and heals to {self.health} health.")
