@@ -6,15 +6,19 @@ class Dragon(Enemy):
         self.element = "fire"
         self.abilities = {
             "Dragonbreath": {
-                "damage multiplier": 5
+                "damage multiplier": 5,
+                "chance": 0.1
             },
             "Wind Gust": {
-                "damage multiplier": 3
+                "damage multiplier": 3,
+                "chance": 0.2
             },
             "Tail Whip": {
-                "damage multiplier": 2
+                "damage multiplier": 2,
+                "chance": 0.3
             },
             "Claw": {
-                "damage multiplier": 1
+                "damage multiplier": 1,
+                "chance": 0.4
             }
         }

@@ -2,6 +2,7 @@ from weapons.staff import Staff
 from weapons.bow import Bow
 from weapons.shield import Shield
 from weapons.spear import Spear
+import time
 
 def intro():
     print_intro_message()
@@ -13,16 +14,28 @@ def intro():
     return player
   
 def print_intro_message():
-    print("--- Welcome to Dragon Slayer! ---")
-    print("\nThe kingdom of Dragonia, your home, and dragons were once at peace until the Great War. \nYou escaped to a neighboring kingdom to find refuge from the last surviving dragon, Oolong. \nMany have tried to defeat him, but all have failed. \nIt is up to you become the hero of this world, the Dragon Slayer!\n")
+    print("\n--- Welcome to Dragon Slayer! ---")
+    time.sleep(1)
+    print("\nThe kingdom of Dragonia, your home, and dragons were once at peace until the Great War.")
+    time.sleep(1)
+    print("You escaped to a neighboring kingdom to find refuge from the last surviving dragon, Oolong.")
+    time.sleep(1)
+    print("Many have tried to defeat him, but all have failed.")
+    time.sleep(1)
+    print("It is up to you become the hero of this world, the Dragon Slayer!\n")
+    time.sleep(1)
 
 def get_player_name():
     print("All heroes need a name.")
+    time.sleep(1)
     return input("What is your name? ")
 
 def print_instructions(player_name):
+    time.sleep(1)
     print(f"\nGreetings, {player_name}!")
+    time.sleep(1)
     print("You must choose a weapon, train, find the Dragon Ring, and defeat the dragon.\n")
+    time.sleep(1)
 
 def print_weapon_choices():
     weapons = ["Bow", "Shield", "Staff", "Spear"]
@@ -33,12 +46,13 @@ def print_weapon_choices():
 def get_weapon_choice(weapons):
     while True:
         try:
-            choice_num = int(input("\nEnter the number. "))
+            time.sleep(1)
+            choice_num = int(input("\nEnter the number. \n"))
             if choice_num < 1 or choice_num > 4:
                print("The number must be between 1 and 4.")
                continue
             weapon_choice = weapons[choice_num - 1]
-            print(f"You have chosen the {weapon_choice}.")
+            print(f"\nYou have chosen the {weapon_choice}.")
             return weapon_choice
         except ValueError:
             print("The input must be a number.")

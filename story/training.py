@@ -12,20 +12,22 @@ def training(player):
 
 def view_stats(player):
     time.sleep(1)
-    print(f"""
-Your current stats are: 
-Health: {player.health}
-Mana: {player.mana}
-Potions: {player.potions}
-""")
+    print(f"Your current stats are:\n")
+    time.sleep(1)
+    print(f"Health: {player.health}")
+    print(f"Mana: {player.mana}")
+    print(f"Potions: {player.potions}")
+    time.sleep(1)
     
 def create_dummy():
-    training_dummy = Training_Dummy("training dummy")
-    print(f"Test your abilities on the {training_dummy.name}.")
+    training_dummy = Training_Dummy("Training Dummy")
+    print(f"\nTest your abilities on the {training_dummy.name}.")
+    time.sleep(1)
     return training_dummy
 
 def print_abilities_info():
     print("All classes have a basic attack and 4 unique abilities.\n")
+    time.sleep(1)
 
 def print_abilities(player):
     for i, ability in enumerate(player.abilities):
@@ -34,6 +36,7 @@ def print_abilities(player):
 def get_ability_choice(player):
     while True:
         try:
+            time.sleep(1)
             choice_num = int(input("\nEnter the number. "))
             if choice_num < 1 or choice_num > len(player.abilities):
                 print("The number must be between 1 and 5.")
@@ -45,14 +48,16 @@ def get_ability_choice(player):
             continue
         
 def fight_dummy(player, ability_choice, training_dummy):
-    player._use_ability(ability_choice, training_dummy)
+    time.sleep(1)
+    player.use_ability(ability_choice, training_dummy)
+    player.mana = 100
     time.sleep(1)
     training_dummy.invincible()
     time.sleep(1)
         
 def get_training_choice(player, ability_choice, training_dummy):
     while True:
-        continue_training = input("\nContinue training? [y/n] ")
+        continue_training = input("\nContinue training? [y/n] \n")
         if continue_training == "n":
             break
         elif continue_training == "y":
