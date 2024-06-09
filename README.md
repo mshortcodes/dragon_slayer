@@ -28,7 +28,7 @@ This was my first personal project for Boot.dev. All of the suggested ideas were
 
 The control flow was probably the hardest part of this game. Getting the behavior I wanted based on certain user interactions, when things did or didn't happen, etc.
 
-I also am not proud of this ridiculous method which I kept adding to throughout this project. This is the worst part of my project, in my opinion. I swear everything else is fairly clean though!
+The use_ability() method was another challenge that I found myself continually tweaking throughout the project. It's not as clean as I'd like it, and it does too many things. I could have extracted some of what it does into other methods to make it more modular.
 
 ```py
 def use_ability(self, ability, target):
